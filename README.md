@@ -7,7 +7,7 @@ Follow the instructions [here](https://docs.docker.com/docker-for-mac/multi-arch
 ```
 docker login
 ```
-2. Build and pushlish a linux/arm64/v8 and linux/amd64 docker images.  Replace `docker-hub-id` with your Docker Hub userid
+2. Build and publish a `linux/arm64/v8` and `linux/amd64` docker images.  Replace `docker-hub-id` with your Docker Hub userid
 ```
 docker buildx build \
 --push \
