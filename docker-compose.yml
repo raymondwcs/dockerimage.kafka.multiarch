@@ -1,0 +1,26 @@
+services:
+    kafka:
+        container_name: kafka
+        image: kafka
+        build: .
+        command: ["/kafka/kafka_2.13-2.7.0/bin/kafka-server-start.sh", "/kafka/kafka_2.13-2.7.0/config/server.properties", "--override", "zookeeper.connect=zookeeper:2181", "--override", "broker.id=100"]
+        restart: on-failure
+        ports:
+            - "9092:9092"
+        networks:
+            - kafka-network
+        depends_on:
+            - zookeeper
+    zookeeper:
+        container_name: zookeeper
+        image: zookeeper
+        build: .
+        command: ["/kafka/kafka_2.13-2.7.0/bin/zookeeper-server-start.sh", "/kafka/kafka_2.13-2.7.0/config/zookeeper.properties"]
+        ports:
+            - "2181:2181"
+        networks:
+            - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge
