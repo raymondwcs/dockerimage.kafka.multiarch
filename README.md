@@ -1,4 +1,4 @@
-# Build & Push Multiarch Docker Images of Apache Kafka
+# Build and publish multiarch Docker images of Apache Kafka
 ## Preparation
 Follow the instructions [here](https://docs.docker.com/docker-for-mac/multi-arch/) to create a new *builder*.
 
